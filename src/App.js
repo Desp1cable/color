@@ -1,23 +1,22 @@
-import logo from './logo.svg';
+import React from 'react';
+import Color from 'color';
 import './App.css';
+
+const electricViolet = {
+  color: "#9717e2",
+  triadic: ["#9717E2", "#E23117", "#17C8E2"],
+  tints: ["#A434E6", "#B151E9", "#BE6EED", "#CB8BF0", "#CB8BF0"],
+  shades: ["#8414C6", "#7111A9", "#5E0E8D", "#4C0B71", "#390955", "#260638", "#13031C"]
+}
+
+export const ColorContext = React.createContext()
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <ColorContext.Provider value={electricViolet}>
+        <Color />
+      </ColorContext.Provider>
     </div>
   );
 }
